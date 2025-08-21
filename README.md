@@ -386,4 +386,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Vid2Aud** - Professional video to audio conversion made simple.
 
-For support, feature requests, or contributions, visit our [GitHub repository](https://github.com/vid2aud/vid2aud-gui).
+For support, feature requests, or contributions, visit our [GitHub repository](https://github.com/sammiykay/video2audio).
