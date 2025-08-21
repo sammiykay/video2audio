@@ -1,0 +1,95 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vid2aud-gui"
+version = "1.0.0"
+description = "Cross-platform desktop GUI for converting video to audio at scale"
+authors = [{name = "Video Converter Team", email = "team@vid2aud.com"}]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+keywords = ["video", "audio", "converter", "ffmpeg", "gui", "qt"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: X11 Applications :: Qt",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Sound/Audio :: Conversion",
+    "Topic :: Multimedia :: Video :: Conversion",
+]
+dependencies = [
+    "PySide6>=6.5.0",
+    "appdirs>=1.4.4",
+    "tqdm>=4.65.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "mypy>=1.5.0",
+    "ruff>=0.0.280",
+    "pytest>=7.4.0",
+    "pytest-qt>=4.2.0",
+    "types-tqdm>=4.65.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/vid2aud/vid2aud-gui"
+Repository = "https://github.com/vid2aud/vid2aud-gui"
+Issues = "https://github.com/vid2aud/vid2aud-gui/issues"
+
+[project.gui-scripts]
+vid2aud = "vid2aud.gui.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"vid2aud.gui" = ["*.qrc", "resources.py"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+
+[tool.ruff]
+target-version = "py310"
+line-length = 88
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4", # flake8-comprehensions
+    "UP", # pyupgrade
+]
+ignore = [
+    "E501", # line too long, handled by formatter
+    "B008", # do not perform function calls in argument defaults
+]
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["F401"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"

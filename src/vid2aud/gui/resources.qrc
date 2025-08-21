@@ -1,0 +1,13 @@
+<RCC>
+  <qresource prefix="/">
+    <file>../../../assets/icons/app.svg</file>
+    <file>../../../assets/icons/add-files.svg</file>
+    <file>../../../assets/icons/add-folder.svg</file>
+    <file>../../../assets/icons/play.svg</file>
+    <file>../../../assets/icons/pause.svg</file>
+    <file>../../../assets/icons/stop.svg</file>
+    <file>../../../assets/icons/clear.svg</file>
+    <file>../../../assets/icons/settings.svg</file>
+    <file>../../../assets/icons/help.svg</file>
+  </qresource>
+</RCC>
